@@ -12,46 +12,10 @@ data = []
 n = 12
 
 
-# ================================
-
-i = 0
-ema2 = 0
-emaL = []
-
-for entry in db.entries:
-
-    if i > 0:
-        #j = i-1
-        #ema = ema + ((2/(n+1)*(entry.close - ema))
-        ema2 = ema2 + 2/(n+1)*(entry.close-ema2)
-    else:
-        ema2 = entry.close
-
-    emaL.append(ema2)
-
-    #print("Datum: {} Close: {:.2f} EMA: {:.2f}".format(entry.date, entry.close, emaL[i]))
-    #i += 1
-    i = i + 1
-    data.append(entry.close)
-
-#print(data)
-
-
-#print(emaL)
-#print(i)
-
-#print(ema(db.entries[4], n))
-
-# ================================
-
-
-
 data = testdaten
-#data = entry.close
 
 testema = ema(data, n)
 #testema = ema(data)
-#testema = ema(db.entries)
 
 for x in testema:
     print(x)
